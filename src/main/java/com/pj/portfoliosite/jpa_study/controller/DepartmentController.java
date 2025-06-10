@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class MemberController {
+public class DepartmentController {
     private final DepartmentService departmentService;
     @PostMapping("/member/add")
     public HttpEntity<String> addMember(@RequestBody MemberDTO memberDTO) {
