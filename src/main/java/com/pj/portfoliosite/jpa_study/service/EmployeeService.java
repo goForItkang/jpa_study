@@ -36,8 +36,13 @@ public class EmployeeService {
     public void removeEmployee(Long id) {
         employeeRepository.remove(id);
     }
-
+    // 부서의 있는 사원들 삭제
     public void deleteAll(Long departmentId) {
         employeeRepository.removeAll(departmentId);
+    }
+    // 부서에 있는 사원들 조회
+    public List<Employee> findByDepartmentEmployees(Long departmentId) {
+        return employeeRepository.findByDepartmentEmployees(departmentId);
+
     }
 }

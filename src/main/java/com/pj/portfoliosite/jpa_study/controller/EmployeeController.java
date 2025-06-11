@@ -41,4 +41,9 @@ public class EmployeeController {
         employeeService.deleteAll(departmentId);
         return new HttpEntity<>("ok");
     }
+    @GetMapping("/department/{departmentId}/employees")
+    public HttpEntity<List<Employee>> getAllEmployees(@PathVariable Long departmentId){
+        List<Employee> employees = employeeService.findByDepartmentEmployees(departmentId);
+        return new HttpEntity<>(employees);
+    }
 }

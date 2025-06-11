@@ -38,6 +38,14 @@ public class EmployeeRepository {
     }
 
     public void removeAll(Long departmentId) {
+        em.createQuery("DELETE FROM Employee e WHERE e.department.id = :departmentId")
+                .setParameter("departmentId",departmentId)
+                .executeUpdate();
+    }
 
+    public List<Employee> findByDepartmentEmployees(Long departmentId) {
+      return em.createQuery("SELECT e FROM Employee e where e.department.id =: departmentId ")
+                .setParameter("departmentId",departmentId)
+                .getResultList();
     }
 }
